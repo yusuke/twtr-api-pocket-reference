@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Connect with Twitter1</title>
+    <script src="http://platform.twitter.com/anywhere.js?id=[APIキー]&amp;v=1" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="small"></div>
+    <div id="medium"></div>
+    <div id="large"></div>
+    <div id="xlarge"></div>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T("#small").connectButton({size:"small"});
+        T("#medium").connectButton();
+        T("#large").connectButton({size:"large"});
+        T("#xlarge").connectButton({size:"xlarge"});
+      });
+    </script>
+</body>
+</html>

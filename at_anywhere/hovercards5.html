@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Hovercards5</title>
+    <script src="http://platform.twitter.com/anywhere.js?id=[APIキー]&amp;v=1" type="text/javascript"></script>
+  </head>
+  <body>
+    <img src="./twitter4j.png" id="image" alt="t4j_news"/>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T("#image").hovercards(
+          {username: function(node){return node.alt}});
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Hovercards2</title>
+    <script src="http://platform.twitter.com/anywhere.js?id=[APIキー]&amp;v=1" type="text/javascript"></script>
+  </head>
+  <body>
+    @Anywhereの最新情報は<span id="main-content">@Anywhereで!</span>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        <!-- id="main-content"に対してhovercardsを適用-->
+        T("#main-content").hovercards();
+      });
+    </script>
+  </body>
+</html>

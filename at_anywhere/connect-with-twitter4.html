@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Connect with Twitter4</title>
+    <script src="http://platform.twitter.com/anywhere.js?id=[APIキー]&amp;v=1" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="login"></div>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T("#login").connectButton();
+      });
+    </script>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T.bind("authComplete", function (e, user) {
+            // ログインが成功したら呼び出される
+            alert("ログインしました");
+        });
+        T.bind("signOut", function (e) {
+            // ユーザーがログアウトしたら呼び出される
+            alert("ログアウトしました");
+        });
+      });
+    </script>
+    <button type="button" onclick="twttr.anywhere.signOut();">ログアウト</button>
+  </body>
+</html>

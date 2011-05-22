@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Hovercards6 userオプション</title>
+    <script src="http://platform.twitter.com/anywhere.js?id=[APIキー]&amp;v=1" type="text/javascript"></script>
+  </head>
+  <body>
+    @twitterapi をフォローしましょう<br>
+    <img src="./twitter4j.png" id="image" alt="t4j_news"/>
+    <script type="text/javascript">
+      twttr.anywhere(function (T) {
+        T.hovercards();
+        T("#image").hovercards(
+          {username: function(node){return node.alt}});
+        });
+    </script>
+  </body>
+</html>
