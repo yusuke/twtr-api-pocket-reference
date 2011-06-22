@@ -12,7 +12,7 @@ public class ShowPublicTimeline {
       // パブリックタイムラインを取得
       List<Status> statuses = twitter.getPublicTimeline();
       System.out.println("パブリックタイムラインを表示します:");
-      // ツイート毎にスクリーン名とツイート本文を表示
+      // ツイートごとにスクリーン名とツイート本文を表示
       for (Status status : statuses) {
         System.out.println("@" + status.getUser().getScreenName() + " - " + status.getText());
       }

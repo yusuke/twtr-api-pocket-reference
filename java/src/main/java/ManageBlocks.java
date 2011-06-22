@@ -24,7 +24,7 @@ public class ManageBlocks {
           System.out.println("@" + screenName + "をブロックしました");
         } else if ("unblock".equals(command)) {
           twitter.destroyBlock(screenName);
-          System.out.println("@" + screenName + "をブロック解除解除しました");
+          System.out.println("@" + screenName + "をブロック解除しました");
         }
       }
       System.out.println("@" + twitter.getScreenName() + "がブロックしているユーザー一覧:");

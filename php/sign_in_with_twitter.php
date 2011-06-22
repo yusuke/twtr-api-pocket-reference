@@ -14,14 +14,14 @@ if(isset($_REQUEST["command"])) switch($_REQUEST["command"]){
     //OAuth認証、まずリクエストトークンを取得
     $twitter->request("POST", $twitter->url("oauth/request_token", "")
       , array("oauth_callback" => $here . "?command=callback"));
-    //リクエストトークンはコールバックを受けてアクセストークンを取得する歳に必要なのでセッションに格納
+    //リクエストトークンはコールバックを受けてアクセストークンを取得する際に必要なのでセッションに格納
     $_SESSION["request_token"] = $twitter->extract_params($twitter->response["response"]);
     //Twitterの認可画面へリダイレクト
     header("Location: " . $twitter->url("oauth/authenticate", "") . "?oauth_token={$_SESSION["request_token"]["oauth_token"]}");
     break;
 
   case "callback":
-    // Twitterからコールバックを受けとった
+    // Twitterからコールバックを受け取った
     $twitter->config["user_token"] = $_SESSION["request_token"]["oauth_token"];
     $twitter->config["user_secret"] = $_SESSION["request_token"]["oauth_token_secret"];
 
@@ -29,7 +29,7 @@ if(isset($_REQUEST["command"])) switch($_REQUEST["command"]){
     $twitter->request("POST", $twitter->url("oauth/access_token", "")
       , array("oauth_verifier" => $_REQUEST["oauth_verifier"]));
     $_SESSION["access_token"] = $twitter->extract_params($twitter->response["response"]);
-    //リクエストトークンは不要(無効)になったので破棄
+    //リクエストトークンは不要（無効）になったので破棄
     unset($_SESSION["request_token"]);
     break;
 

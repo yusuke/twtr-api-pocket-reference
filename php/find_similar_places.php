@@ -26,7 +26,7 @@
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
       google.maps.event.addListener(map, 'mouseup', function() {
-        // 地図をドラッグしたらフォールの緯度経度欄に反映させる
+        // 地図をドラッグしたらフォームの緯度経度欄に反映させる
         document.getElementById("lat").value = map.getCenter().lat();
         document.getElementById("long").value = map.getCenter().lng();
       });

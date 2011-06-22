@@ -27,7 +27,7 @@ if (isset($_POST["query"])) {
   $search->request("GET", $search->url("search"), array("q" => $_POST["query"]));
   $tweets = json_decode($search->response["response"])->{"results"};
 
-  // ツイート毎にスクリーン名とツイート本文を表示
+  // ツイートごとにスクリーン名とツイート本文を表示
   foreach ($tweets as $tweet) {
     $screenName = $tweet->{"from_user"};
     print "<a href='./manage_favorites.php?command=favorite&id=" . $tweet->{"id_str"} . "'>お気に入りに追加</a> <img src='" . $tweet->{"profile_image_url"} . "'> @$screenName " . htmlspecialchars($tweet->{"text"}) . "<br>";

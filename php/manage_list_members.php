@@ -23,7 +23,7 @@ if(isset($_REQUEST["command"])){
   switch($_REQUEST["command"]){
     case "add":
       $screen_name = htmlspecialchars($_REQUEST["screen_name"]);
-      // 指定したユーザIDをリストに追加する
+      // 指定したユーザーIDをリストに追加する
       $twitter->request("POST", $twitter->url("1/lists/members/create")
         , array("list_id" => $_REQUEST["list_id"], "screen_name" => $screen_name));
       print "リストID: $list_id に @$screen_name を追加しました<br>";

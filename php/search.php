@@ -11,7 +11,7 @@
 <?php
 if (isset($_POST["query"])) {
   print htmlspecialchars($_POST["query"]) . "の検索結果:<br>";
-  // tmhOAuthを初期化。
+  // tmhOAuthを初期化
   // 検索APIではホストがtmhOAuthデフォルトのapi.twitter.comではないので明示的に指定する必要がある
   require "./tmhOAuth.php";
   $twitter = new tmhOAuth(array("host" => "search.twitter.com",));
@@ -19,7 +19,7 @@ if (isset($_POST["query"])) {
   $twitter->request("GET", $twitter->url("search"), array("q" => $_POST["query"]));
   $tweets = json_decode($twitter->response["response"])->{"results"};
 
-  // ツイート毎にスクリーン名とツイート本文を表示
+  // ツイートごとにスクリーン名とツイート本文を表示
   foreach ($tweets as $tweet) {
     $screenName = $tweet->{"from_user"};
     print "<img src='" . $tweet->{"profile_image_url"} . "'> @$screenName " . htmlspecialchars($tweet->{"text"}) . "<br>";

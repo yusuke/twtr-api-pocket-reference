@@ -1,6 +1,7 @@
 <?php
-//簡単なサンプルとしてPHPのコード例を示しますが、携帯用アプリケーションを除き、本来WebインターフェースしかないアプリケーションでxAuthを使うべきではありません。
-//代わりにOAuth、またはSign in with Twitterを使うべきです
+//簡単なサンプルとしてPHPのコード例を示しますが、
+//携帯用アプリケーションを除き、本来WebインターフェースしかないアプリケーションでxAuthを使うべきではありません。
+//代わりにOAuth、またはSign in with Twitterを使うべきです。
 
 //tmhOAuthを初期化
 require "./tmhOAuth.php";
