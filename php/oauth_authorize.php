@@ -7,7 +7,12 @@ $twitter = new tmhOAuth(
        "consumer_secret" => "コンシューマシークレット"));
 
 $here = $twitter->php_self();
+//session fixation攻撃対策
 session_start();
+if(!isset($_SESSION["initiated"])){
+	session_regenerate_id();
+	$_SESSION["initiated"] = true;
+}
 
 if(isset($_REQUEST["command"])) switch($_REQUEST["command"]){
   case "authorize":
